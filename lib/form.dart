@@ -270,6 +270,12 @@ class _MyFormPageState extends State<MyFormPage> {
                                                                         DataCell(Text(pdbClass)),
                                                                     ],
                                                                 ),
+                                                                DataRow(
+                                                                    cells: <DataCell>[
+                                                                        DataCell(Text('Mode: ')),
+                                                                        DataCell(Text(_switchValue ? "ON" : "OFF")),
+                                                                    ],
+                                                                ),
                                                             ],
                                                         ),
                                                         SizedBox(height: 10),
