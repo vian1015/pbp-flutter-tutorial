@@ -1,4 +1,5 @@
 import 'package:first_app/main.dart';
+import 'package:first_app/page/to_do_page.dart';
 import 'package:flutter/material.dart';
 
 class MyFormPage extends StatefulWidget {
@@ -27,33 +28,7 @@ class _MyFormPageState extends State<MyFormPage> {
             appBar: AppBar(
                 title: Text('Form'),
             ),
-            drawer: Drawer(
-                child: Column(
-                    children: [
-                    // Adding clickable menu
-                        ListTile(
-                            title: const Text('Counter'),
-                            onTap: () {
-                            // Routing the menu to the main page
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(builder: (context) => const MyHomePage()),
-                            );
-                            },
-                        ),
-                        ListTile(
-                            title: const Text('Form'),
-                            onTap: () {
-                            // Routing the menu to the form page
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(builder: (context) => const MyFormPage()),
-                            );
-                            },
-                        ),
-                    ],
-                ),
-            ),
+            drawer: DrawerWidget(),
             body: Form(
                 key: _formKey,
                 child: SingleChildScrollView(

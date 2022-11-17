@@ -1,4 +1,5 @@
-import 'package:first_app/form.dart';
+import 'package:first_app/page/form.dart';
+import 'package:first_app/page/to_do_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,6 +17,49 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
         ),
         home: const MyHomePage(),
+        );
+    }
+}
+
+class DrawerWidget extends StatelessWidget {
+    @override
+    Widget build(BuildContext context) {
+        return Drawer(
+            child: Column(
+                children: [
+                // Adding clickable menu
+                    ListTile(
+                        title: const Text('Counter'),
+                        onTap: () {
+                        // Routing the menu to the main page
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => const MyHomePage()),
+                        );
+                        },
+                    ),
+                    ListTile(
+                        title: const Text('Form'),
+                        onTap: () {
+                        // Routing the menu to the form page
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => const MyFormPage()),
+                        );
+                        },
+                    ),
+                    ListTile(
+                        title: const Text('To Do'),
+                        onTap: () {
+                        // Routing the menu to the form page
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => const ToDoPage()),
+                        );
+                        },
+                    ),
+                ],
+            ),
         );
     }
 }
@@ -56,33 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       // Adding drawer menu
-      drawer: Drawer(
-          child: Column(
-            children: [
-              // Adding clickable menu
-              ListTile(
-                title: const Text('Counter'),
-                onTap: () {
-                  // Routing the menu to the main page
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MyHomePage()),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Form'),
-                onTap: () {
-                  // Routing the menu to the form page
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MyFormPage()),
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
+      drawer: DrawerWidget(),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
